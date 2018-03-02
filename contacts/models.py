@@ -38,15 +38,11 @@ class Address(models.Model):
     address = models.CharField(
         max_length=255,
     )
-    city = models.CharField(
-        max_length=255,
-    )
+    city = models.CharField(max_length=255,)
     state = models.CharField(
         max_length=2,
     )
-    postal_code = models.CharField(
-        max_length=20,
-    )
+    postal_code = models.CharField( max_length=20,)
 
     class Meta:
         unique_together = ('contact', 'address_type',)

@@ -1,4 +1,4 @@
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 
 from django.contrib.auth.models import User
@@ -14,7 +14,7 @@ class Contact(models.Model):
 
     email = models.EmailField()
 
-    owner = models.ForeignKey(User)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE,)
 
     def __str__(self):
 
@@ -30,10 +30,8 @@ class Contact(models.Model):
 
 class Address(models.Model):
 
-    contact = models.ForeignKey(Contact)
-    address_type = models.CharField(
-        max_length=10,
-    )
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE,)
+    address_type = models.CharField(max_length=10,)
 
     address = models.CharField(
         max_length=255,

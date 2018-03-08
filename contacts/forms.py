@@ -17,6 +17,7 @@ class ContactForm(forms.ModelForm):
 
     class Meta:
         model = Contact
+        exclude = []
 
     def __init__(self, *args, **kwargs):
 
@@ -41,6 +42,6 @@ class ContactForm(forms.ModelForm):
 # inlineformset_factory creates a Class from a parent model (Contact)
 # to a child model (Address)
 ContactAddressFormSet = inlineformset_factory(
-    Contact,
-    Address,
+    Contact, 
+    Address, exclude =(),
 )

@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.core.exceptions import PermissionDenied
-from django.core.urlresolvers import reverse
+from django.urls import reverse # from django.core.urlresolvers import reverse
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -11,7 +11,7 @@ from django.views.generic import (
 )
 
 from contacts.models import Contact
-import forms
+from . import forms
 
 
 class LoggedInMixin(object):
